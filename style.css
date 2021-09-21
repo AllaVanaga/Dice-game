@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(187, 199, 199);
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 30px;
+}
+
+.container {
+  text-align: center;
+}
+
+#img-footer {
+  width: 20px;
+}
+
+#img-dice {
+  width: 200px;
+}
+
+footer {
+  margin-top: 30px;
+  color: #792f2f;
+  text-align: center;
+  font-size: 20px;
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+}
+
+/* table,
+th,
+td {
+  border: 1px solid gray;
+  text-align: cente;
+} */
