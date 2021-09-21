@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <meta charset="utf-8">
+        <title>Dice game</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Dice game</h1>
-    </body>
+        <div class=container>
+            <div><button>Roll me</button></div>
+            <div class=dice> 
+                <p>Player 1</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
+                <img src="Images/dice-six-faces-six.png" id="img-dice">
+            </div> 
+            <div class=dice> 
+                <p>Player 2</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
+                <img src="Images/dice-six-faces-six.png" id="img-dice">
+           </div> 
+           <!-- <div class=score> 
+               Score
+               <table>
+                    <tr>
+                        <td>Player 1</td>
+                        <td>Player 2</td>
+                    </tr>
+               </table>
+            </div> -->
+        </div>
+    <footer> <img src="Images/dice.png" alt="Dice" id="img-footer"> Roll and play - Dice game <img src="Images/dice.png" alt="Dice" id="img-footer"></footer>
+    <script src="index.js"></script>
+</body>
 </html>
