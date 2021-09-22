@@ -16,19 +16,12 @@ function rollDice(){
     document.getElementById("score2").innerHTML = roll2;
 
     if(roll1<roll2){
-        document.querySelector("h2").innerHTML = ("Player 2 wins!");
+        document.querySelector("h2").innerHTML = (player2.innerText + " wins!");
     }else if(roll1>roll2){
-        document.querySelector("h2").innerHTML = ("Player 1 wins!");
+        document.querySelector("h2").innerHTML = (player1.innerText + " wins!");
     }else{
         document.querySelector("h2").innerHTML = "It's a draw!";
     }
-    // if(roll1<roll2){
-    //     document.querySelector("h2").innerHTML = (player2 + " wins!");
-    // }else if(roll1>roll2){
-    //     document.querySelector("h2").innerHTML = (player1 + " wins!");
-    // }else{
-    //     document.querySelector("h2").innerHTML = "It's a draw!";
-    // }
 
     let dice1 = document.querySelectorAll('.dice')[0].lastElementChild;
     let rollImage1 = "dice-six-faces-" + roll1 + ".png";
