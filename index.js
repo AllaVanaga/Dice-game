@@ -2,10 +2,6 @@ let button = document.querySelector("#button");
 let player1 = document.querySelector("#Player1");
 let player2 = document.querySelector("#Player2");
 
-// let diceDOM1 = document.querySelector(".dice-six-faces");
-// diceDom1.src="dice-six-faces-" + roll1 + " .png";
-
-
 function rollDice(){ 
     let roll1 = Math.floor(Math.random() *6) + 1;
     let roll2 = Math.floor(Math.random() *6) + 1;
