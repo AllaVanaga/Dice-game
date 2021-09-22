@@ -6,19 +6,19 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1><img src="Images/dice.png" alt="Dice" id="img-footer"> 
+        <header><img src="Images/dice.png" alt="Dice" id="img-header"> 
             Roll and play - Dice game 
-            <img src="Images/dice.png" alt="Dice" id="img-footer">
-        </h1>
+            <img src="Images/dice.png" alt="Dice" id="img-header">
+        </header>
         <div class=container>
             <div id="button" onclick=rollDice()><button>Roll me</button></div>
             <div class=dice> 
                 <p id="Player1">Player 1</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
-                <img src="Images/dice-six-faces-six.png" id="img-dice">
+                <img class="img1" src="Images/dice-six-faces-6.png">
             </div>
             <div class=dice> 
                 <p id="Player2">Player 2</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
-                <img src="Images/dice-six-faces-six.png" id="img-dice">
+                <img class="img2" src="Images/dice-six-faces-6.png">
            </div>
 
            <p class="score">Player 1 score:<span id="score1">0</span></p>
@@ -34,7 +34,7 @@
                </table>
             </div> -->
         </div>
-    <footer> <img src="Images/dice.png" alt="Dice" id="img-footer"> Roll and play - Dice game <img src="Images/dice.png" alt="Dice" id="img-footer"></footer>
+    
     <script src="index.js"></script>
 </body>
 </html>
