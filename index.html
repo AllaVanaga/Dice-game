@@ -11,28 +11,26 @@
             <img src="Images/dice.png" alt="Dice" id="img-header">
         </header>
         <div class=container>
-            <div id="button" onclick=rollDice()><button>Roll me</button></div>
+            <p>Input players' names!</p>
+            <form id="myForm">
+                <input type="text" name="name1" id="name1">
+                <input type="text" name="name2" id="name2"> 
+            </form>
+            <div class=button id="button" onclick=getNames()><button>Submit</button></div>
+            <div class=button id="myButton" onclick=rollDice()><button>Roll me</button></div>
             <div class=dice> 
-                <p id="Player1">Player 1</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
+                <p id="Player1">Player 1</p> 
                 <img class="img1" src="Images/dice-six-faces-6.png">
             </div>
             <div class=dice> 
-                <p id="Player2">Player 2</p> <!--varētu pievienot iespēju ierakstīt vārdu-->
+                <p id="Player2">Player 2</p> 
                 <img class="img2" src="Images/dice-six-faces-6.png">
            </div>
 
-           <p class="score">Player 1 score:<span id="score1">0</span></p>
-           <p class="score">Player 2 score:<span id="score2">0</span></p>
+           <p class="score" id="Player1"><span id="score1">0</span> Total score:<span id="total1">0</span></p>
+           <p class="score" id="Player2"><span id="score2">0</span> Total score:<span id="total2">0</span></p>
            <h2>Who's the winner?</h2> 
-           <!-- <div class=score> 
-               Score
-               <table>
-                    <tr>
-                        <td>Player 1</td>
-                        <td>Player 2</td>
-                    </tr>
-               </table>
-            </div> -->
+           <button class=button id="button" onclick=resetScore()>Reset</button>
         </div>
     
     <script src="index.js"></script>
