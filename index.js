@@ -51,21 +51,19 @@ function rollDice(){
     dice2.setAttribute("src", imageSource2);
 }
 function stopGame() {
-    if (clicks<9) {
-      clicks++;
-    }
-    else {
-      window.rollDice = function(){};
-    }
-    if(total1<total2 && clicks == 9){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
-        document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
-    }else if(total1>total2 && clicks == 9){
-        document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
-    }else if (total1 == total2 && clicks == 9){
-        document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+    if(clicks===9){
+        if(total1<total2){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
+            document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
+        }else if(total1>total2){
+            document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
+        }else if (total1 == total2){
+            document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+        }
+        window.rollDice = function(){};
     }else{
         document.querySelector("h2").innerHTML = "Who's the winner?";
     }
+    clicks++;
   };
 
   button.addEventListener('click',stopGame);
