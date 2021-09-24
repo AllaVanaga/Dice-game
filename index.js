@@ -1,6 +1,19 @@
-let button = document.querySelector("#button");
+let button = document.querySelector("#myButton");
 let player1 = document.querySelector("#Player1");
 let player2 = document.querySelector("#Player2");
+let total1 = document.querySelector("#total1");
+let total2 = document.querySelector("#total2");
+total1 = 0;
+total2 = 0;
+let clicks = 0;
+
+function getNames() {
+    let name1 = document.getElementById("name1").value;
+    document.getElementById("Player1").innerHTML = name1;
+    let name2 = document.getElementById("name2").value;
+    document.getElementById("Player2").innerHTML = name2;
+    document.getElementById("myForm").reset();  
+}
 
 function rollDice(){ 
     let roll1 = Math.floor(Math.random() *6) + 1;
@@ -8,16 +21,24 @@ function rollDice(){
     console.info("Rolled value is: ", roll1);
     console.info("Rolled value is: ", roll2);
 
-    document.getElementById("score1").innerHTML = roll1;
-    document.getElementById("score2").innerHTML = roll2;
+    document.getElementById("score1").innerHTML = player1.innerText + " score: " + roll1;
+    total1 += roll1;
+    document.getElementById("total1").innerHTML = total1;
 
-    if(roll1<roll2){
-        document.querySelector("h2").innerHTML = (player2.innerText + " wins!");
-    }else if(roll1>roll2){
-        document.querySelector("h2").innerHTML = (player1.innerText + " wins!");
-    }else{
-        document.querySelector("h2").innerHTML = "It's a draw!";
-    }
+    document.getElementById("score2").innerHTML = player2.innerText + " score:" + roll2;
+    total2 += roll2;
+    document.getElementById("total2").innerHTML = total2;
+
+    console.info("Total score:",total1)
+    console.info("Total score:",total2)
+   
+    // if(total1<total2){
+    //     document.querySelector("h2").innerHTML = (player2.innerText + " wins!");
+    // }else if(total1>total2){
+    //     document.querySelector("h2").innerHTML = (player1.innerText + " wins!");
+    // }else{
+    //     document.querySelector("h2").innerHTML = "It's a draw!";
+    // }
 
     let dice1 = document.querySelectorAll('.dice')[0].lastElementChild;
     let rollImage1 = "dice-six-faces-" + roll1 + ".png";
@@ -29,6 +50,30 @@ function rollDice(){
     let imageSource2 = "images/" + rollImage2;
     dice2.setAttribute("src", imageSource2);
 }
+function stopGame() {
+    if (clicks<9) {
+      clicks++;
+    }
+    else {
+      window.rollDice = function(){};
+    }
+    if(total1<total2 && clicks == 9){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
+        document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
+    }else if(total1>total2 && clicks == 9){
+        document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
+    }else if (total1 == total2 && clicks == 9){
+        document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+    }else{
+        document.querySelector("h2").innerHTML = "Who's the winner?";
+    }
+  };
+
+  button.addEventListener('click',stopGame);
+
+function resetScore(){
+    window.location.reload();
+} 
+
 
 
 
