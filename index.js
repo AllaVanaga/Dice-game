@@ -49,10 +49,29 @@ function rollDice(){
     let rollImage2 = "dice-six-faces-" + roll2 + ".png";
     let imageSource2 = "images/" + rollImage2;
     dice2.setAttribute("src", imageSource2);
+
+    const items1 = [
+        {roll1:clicks, roll2:clicks}
+    ];
+    function loadTableData(items){
+        const table = document.getElementById("score-table");
+        
+        items.forEach(item => {
+            let row = table.insertRow();
+            let player1 = row.insertCell(0);
+            
+            player1.innerHTML = item.player1;
+            let player2 = row.insertCell(1);
+            player2.innerHTML = item.player2;
+        });
+    }
+    loadTableData(items1);
+    loadTableData([]);
+
 }
 function stopGame() {
     if(clicks===9){
-        if(total1<total2){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
+        if(total1<total2){ 
             document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
         }else if(total1>total2){
             document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
@@ -71,7 +90,5 @@ function stopGame() {
 function resetScore(){
     window.location.reload();
 } 
-
-
 
 

@@ -11,14 +11,14 @@ p {
 }
 
 form {
-  padding:10px
+  padding: 10px;
 }
 
 .container {
   text-align: center;
 }
-.button{
-  padding:5px;
+.button {
+  padding: 5px;
 }
 
 #img-header {
@@ -42,9 +42,13 @@ header {
   display: inline-block;
 }
 
-/* table,
+thead {
+  background-color: rgb(146, 230, 230);
+}
+table,
 th,
 td {
-  border: 1px solid gray;
+  text-align: center;
+  border: 1px solid rgb(10, 25, 53);
   text-align: cente;
-} */
+}
