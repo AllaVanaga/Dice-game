@@ -6,6 +6,20 @@ let total2 = document.querySelector("#total2");
 total1 = 0;
 total2 = 0;
 let clicks = 0;
+let myAudio = document.querySelector('#audio');
+myAudio.volume = 0.5;
+  
+  function addAnimation(){
+    myAudio.play()
+    // document.getElementById('dice').classList.add("shake");
+    let timer = setInterval(function(){
+      rollDice();
+    }, 1000);
+    setTimeout(function(){
+    //   document.getElementById('dice').classList.remove("shake");
+      clearInterval(timer);
+    },1000);
+  }
 
 function getNames() {
     let name1 = document.getElementById("name1").value;
@@ -14,8 +28,7 @@ function getNames() {
     document.getElementById("Player2").innerHTML = name2;
     document.getElementById("myForm").reset();  
 }
-
-function rollDice(){ 
+function rollDice(){  
     let roll1 = Math.floor(Math.random() *6) + 1;
     let roll2 = Math.floor(Math.random() *6) + 1;
     console.info("Rolled value is: ", roll1);
@@ -51,22 +64,20 @@ function rollDice(){
     dice2.setAttribute("src", imageSource2);
 }
 function stopGame() {
-    if (clicks<9) {
-      clicks++;
-    }
-    else {
-      window.rollDice = function(){};
-    }
-    if(total1<total2 && clicks == 9){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
-        document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
-    }else if(total1>total2 && clicks == 9){
-        document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
-    }else if (total1 == total2 && clicks == 9){
-        document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+    if(clicks>=9){
+        if(total1<total2){ // paradas pie 9 klikskiem, ja maina uz clicks == 10, tad neparadas vispar!
+            document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
+        }else if(total1>total2){
+            document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
+        }else if (total1 == total2){
+            document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+        }
+        window.rollDice = function(){};
     }else{
         document.querySelector("h2").innerHTML = "Who's the winner?";
     }
-  };
+    clicks++;
+}
 
   button.addEventListener('click',stopGame);
 
