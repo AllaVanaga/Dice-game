@@ -6,6 +6,20 @@ let total2 = document.querySelector("#total2");
 total1 = 0;
 total2 = 0;
 let clicks = 0;
+let myAudio = document.querySelector('#audio');
+myAudio.volume = 0.5;
+  
+  function addAnimation(){
+    myAudio.play()
+    // document.getElementById('dice').classList.add("shake");
+    let timer = setInterval(function(){
+      rollDice();
+    }, 1000);
+    setTimeout(function(){
+    //   document.getElementById('dice').classList.remove("shake");
+      clearInterval(timer);
+    },1000);
+  }
 
 function getNames() {
     let name1 = document.getElementById("name1").value;
@@ -14,8 +28,7 @@ function getNames() {
     document.getElementById("Player2").innerHTML = name2;
     document.getElementById("myForm").reset();
 }
-
-function rollDice(){ 
+function rollDice(){  
     let roll1 = Math.floor(Math.random() *6) + 1;
     let roll2 = Math.floor(Math.random() *6) + 1;
     console.info("Rolled value is: ", roll1);
@@ -31,14 +44,6 @@ function rollDice(){
 
     console.info("Total score:",total1)
     console.info("Total score:",total2)
-   
-    // if(total1<total2){
-    //     document.querySelector("h2").innerHTML = (player2.innerText + " wins!");
-    // }else if(total1>total2){
-    //     document.querySelector("h2").innerHTML = (player1.innerText + " wins!");
-    // }else{
-    //     document.querySelector("h2").innerHTML = "It's a draw!";
-    // }
 
     let dice1 = document.querySelectorAll('.dice')[0].lastElementChild;
     let rollImage1 = "dice-six-faces-" + roll1 + ".png";
@@ -72,7 +77,7 @@ function rollDice(){
 }
 function stopGame() {
     if(clicks===9){
-        if(total1<total2){ 
+        if(total1<total2){
             document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
         }else if(total1>total2){
             document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");

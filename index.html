@@ -16,17 +16,16 @@
                 <input type="text" name="name1" id="name1">
                 <input type="text" name="name2" id="name2"> 
             </form>
-            <div class=button id="button" onclick=getNames()><button>Submit</button></div>
-            <div class=button id="myButton" onclick=rollDice()><button>Roll me</button></div>
-            <div class=dice> 
+            <div class=button id="button" onclick=getNames()><button>Submit</button></div>           
+            <div class=button id="myButton" onclick=addAnimation()><button>Roll me</button></div>
+            <div class=dice id="dice"> 
                 <p id="Player1">Player 1</p> 
                 <img class="img1" src="Images/dice-six-faces-6.png">
             </div>
-            <div class=dice> 
+            <div class=dice id="dice"> 
                 <p id="Player2">Player 2</p> 
                 <img class="img2" src="Images/dice-six-faces-6.png">
            </div>
-
            <div id="score-container">Score table</div>
            <table>
                <thead class=table>
@@ -44,6 +43,7 @@
            <button class=button id="button" onclick=resetScore()>Reset</button>
         </div>
     
-    <script src="index.js"></script>
+        <audio id="audio" src="Rolling_Dice.wav"></audio>
+        <script src="index.js"></script>
 </body>
 </html>
