@@ -60,6 +60,8 @@ function rollDice(){
     ];
 
     function loadTableData(items){
+        const table = document.getElementById("score-table");
+
         document.querySelectorAll("#Player1")[1].innerHTML=player1.innerHTML;
         document.querySelectorAll("#Player2")[1].innerHTML=player2.innerHTML;
 
