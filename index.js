@@ -12,7 +12,7 @@ function getNames() {
     document.getElementById("Player1").innerHTML = name1;
     let name2 = document.getElementById("name2").value;
     document.getElementById("Player2").innerHTML = name2;
-    document.getElementById("myForm").reset();  
+    document.getElementById("myForm").reset();
 }
 
 function rollDice(){ 
@@ -53,16 +53,17 @@ function rollDice(){
     const items1 = [
         {roll1:clicks, roll2:clicks}
     ];
+
     function loadTableData(items){
-        const table = document.getElementById("score-table");
-        
+        document.querySelectorAll("#Player1")[1].innerHTML=player1.innerHTML;
+        document.querySelectorAll("#Player2")[1].innerHTML=player2.innerHTML;
+
         items.forEach(item => {
             let row = table.insertRow();
             let player1 = row.insertCell(0);
-            
-            player1.innerHTML = item.player1;
+            player1.innerHTML = roll1;
             let player2 = row.insertCell(1);
-            player2.innerHTML = item.player2;
+            player2.innerHTML = roll2;
         });
     }
     loadTableData(items1);
