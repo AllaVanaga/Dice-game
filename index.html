@@ -9,38 +9,56 @@
         <header><img src="Images/dice.png" alt="Dice" id="img-header"> 
             Roll and play - Dice game 
             <img src="Images/dice.png" alt="Dice" id="img-header">
-        </header>
-        <div class=container>
+            <br>
             <p>Input players' names!</p>
             <form id="myForm">
-                <input type="text" name="name1" id="name1">
-                <input type="text" name="name2" id="name2"> 
+                <!--papildināju ar pelēko ierakstu input logā un max garumu ievadāmajam vārdam-->
+                <input type="text" name="name1" id="name1" placeholder="Player's name" maxlength="10"> 
+                <input type="text" name="name2" id="name2" placeholder="Player's name" maxlength="10"> 
             </form>
-            <div class=button id="button" onclick=getNames()><button>Submit</button></div>           
-            <div class=button id="myButton" onclick=addAnimation()><button>Roll me</button></div>
-            <div class=dice id="dice"> 
-                <p id="Player1">Player 1</p> 
-                <img class="img1" src="Images/dice-six-faces-6.png">
+            <!-- <div class=button id="button" onclick=getNames()><button>Submit</button></div>  -->
+            <button class=button id="button" onclick=getNames()>Submit</button> 
+            
+        </header>
+        <div class=container>
+            <div class=containerPlayground>
+                <!-- <div class=button id="myButton" onclick=addAnimation()><button>Roll me</button></div> -->
+                <button class=button id="myButton" onclick=addAnimation()>Roll me</button>
+                <br>
+                <div class=dice id="dice"> 
+                    <p id="Player1">Player 1</p> 
+                    <img class="img1" src="Images/dice-six-faces-6.png">
+                </div>
+                <div class=dice id="dice"> 
+                    <p id="Player2">Player 2</p> 
+                    <img class="img2" src="Images/dice-six-faces-6.png">
             </div>
-            <div class=dice id="dice"> 
-                <p id="Player2">Player 2</p> 
-                <img class="img2" src="Images/dice-six-faces-6.png">
-           </div>
-           <div id="score-container">Score table</div>
-           <table>
-               <thead class=table>
-                   <tr>
-                       <td id="Player1">Player1</td>
-                       <td id="Player2">Player2</td>
-                   </tr>
-               </thead>
-               <tbody id="score-table"></tbody>
-           </table>
-
-           <p class="score" id="Player1"><span id="score1">0</span> Total score:<span id="total1">0</span></p>
-           <p class="score" id="Player2"><span id="score2">0</span> Total score:<span id="total2">0</span></p>
-           <h2>Who's the winner?</h2> 
-           <button class=button id="button" onclick=resetScore()>Reset</button>
+            </div>
+           <div class=containerScore>
+               <h2>Score table</h2>
+                <table>
+                    <thead class=table>
+                        <tr>
+                            <td>Rounds</td>
+                                <td id="Player1">Player1</td>
+                            <td id="Player2">Player2</td>
+                        </tr>
+                    </thead>
+                    <tbody id="score-table"></tbody>
+                    <!-- pievienojot kopsummu tabulai, pazūd vērtības pie tekstiem -->
+                            <!-- <tr>
+                                <td id="total1"></td>
+                                <td id="total2"></td>
+                            </tr> -->
+                </table>
+            
+                <p class="score" id="Player1"><span id="score1">0</span> Total score:<span id="total1">0</span></p>
+                <p class="score" id="Player2"><span id="score2">0</span> Total score:<span id="total2">0</span></p>
+                <div>
+                    <h2>Who's the winner?</h2> 
+                    <button class=button id="button" onclick=resetScore()>Start new game!</button>
+                    </div>
+            </div>
         </div>
     
         <audio id="audio" src="Rolling_Dice.wav"></audio>

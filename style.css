@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(187, 199, 199);
+  background-color: rgb(230, 233, 245);
 }
 
 h1 {
@@ -16,7 +16,23 @@ form {
 
 .container {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
+
+.containerPlayground {
+  background-color: #bad1eb;
+  width: 10cm;
+  padding: 10px 25px;
+  min-height: 15cm;
+}
+
+.containerScore {
+  background-color: #a5bad3;
+  width: 10cm;
+  padding: 10px 25px;
+}
+
 .button {
   padding: 5px;
 }
@@ -51,4 +67,8 @@ td {
   text-align: center;
   border: 1px solid rgb(10, 25, 53);
   text-align: cente;
+}
+
+td {
+  width: 3cm;
 }

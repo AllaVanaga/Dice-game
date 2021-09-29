@@ -26,8 +26,15 @@ function getNames() {
     document.getElementById("Player1").innerHTML = name1;
     let name2 = document.getElementById("name2").value;
     document.getElementById("Player2").innerHTML = name2;
-    document.getElementById("myForm").reset();
+    document.getElementById("myForm").reset(); //deaktivizējot šo rindu nekas nemainās.
+
+    document.querySelectorAll("#Player1")[1].innerHTML=player1.innerHTML;
+    document.querySelectorAll("#Player2")[1].innerHTML=player2.innerHTML; //pievienoju šajā funkcijā, lai nomainās uzreiz ievadot nevis tikai tad, kad izmests pirmais raunds
+    
+    //būtu jāpievieno f-ja, ka sumbint nospiež pie tukšām vērtībām - uzrāda Player 1 un Player 2
+    
 }
+
 function rollDice(){  
     let roll1 = Math.floor(Math.random() *6) + 1;
     let roll2 = Math.floor(Math.random() *6) + 1;
@@ -62,14 +69,16 @@ function rollDice(){
     function loadTableData(items){
         const table = document.getElementById("score-table");
 
-        document.querySelectorAll("#Player1")[1].innerHTML=player1.innerHTML;
-        document.querySelectorAll("#Player2")[1].innerHTML=player2.innerHTML;
+        // document.querySelectorAll("#total1")[1].innerHTML=total1.innerHTML; //pievienojot tabulā total vērtību, pazūd pie teksta.
+        // document.querySelectorAll("#total2")[1].innerHTML=total2.innerHTML;
 
-        items.forEach(item => {
+        items.forEach(() => {
             let row = table.insertRow();
-            let player1 = row.insertCell(0);
+            let round = row.insertCell(0);
+            round.innerHTML = clicks; //tabulā iekļauti raundi
+            let player1 = row.insertCell(1);
             player1.innerHTML = roll1;
-            let player2 = row.insertCell(1);
+            let player2 = row.insertCell(2);
             player2.innerHTML = roll2;
         });
     }
