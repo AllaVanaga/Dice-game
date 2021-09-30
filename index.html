@@ -23,8 +23,6 @@
         <div class=container>
             <div class=containerPlayground>
                 <!-- <div class=button id="myButton" onclick=addAnimation()><button>Roll me</button></div> -->
-                <button class=button id="myButton" onclick=addAnimation()>Roll me</button>
-                <br>
                 <div class=dice id="dice"> 
                     <p id="Player1">Player 1</p> 
                     <img class="img1" src="Images/dice-six-faces-6.png">
@@ -32,7 +30,10 @@
                 <div class=dice id="dice"> 
                     <p id="Player2">Player 2</p> 
                     <img class="img2" src="Images/dice-six-faces-6.png">
-            </div>
+                </div>
+                <br>
+                <button class=button id="myButton" onclick=rollDice()>Roll me</button>
+                
             </div>
            <div class=containerScore>
                <h2>Score table</h2>
@@ -46,16 +47,18 @@
                     </thead>
                     <tbody id="score-table"></tbody>
                     <!-- pievienojot kopsummu tabulai, pazūd vērtības pie tekstiem -->
-                            <!-- <tr>
+                            <tr>
+                                <td>Total score</td>
                                 <td id="total1"></td>
                                 <td id="total2"></td>
-                            </tr> -->
+                            </tr>
                 </table>
             
-                <p class="score" id="Player1"><span id="score1">0</span> Total score:<span id="total1">0</span></p>
-                <p class="score" id="Player2"><span id="score2">0</span> Total score:<span id="total2">0</span></p>
+                <p class=score id="Player1"></p>
+                <p class=score id="Player2"></p>
+                <!-- <p class="score" id="Player1"><span id="score1">0</span> Total score:<span id="total1">0</span></p>
+                <p class="score" id="Player2"><span id="score2">0</span> Total score:<span id="total2">0</span></p> -->
                 <div>
-                    <h2>Who's the winner?</h2> 
                     <button class=button id="button" onclick=resetScore()>Start new game!</button>
                     </div>
             </div>
