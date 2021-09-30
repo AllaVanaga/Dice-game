@@ -7,7 +7,7 @@ total1 = 0;
 total2 = 0;
 let clicks = 0;
 let myAudio = document.querySelector('#audio');
-myAudio.volume = 0.5;
+myAudio.volume = 0.4;
   
 //   function addAnimation(){
 //     myAudio.play()
@@ -36,73 +36,78 @@ function getNames() {
 }
 
 function rollDice(){  
-    let roll1 = Math.floor(Math.random() *6) + 1;
-    let roll2 = Math.floor(Math.random() *6) + 1;
-    console.info("Rolled value is: ", roll1);
-    console.info("Rolled value is: ", roll2);
+    myAudio.play()
+    setTimeout(function(){
+        let roll1 = Math.floor(Math.random() *6) + 1;
+        let roll2 = Math.floor(Math.random() *6) + 1;
+        console.info("Rolled value is: ", roll1);
+        console.info("Rolled value is: ", roll2);
 
-    // document.getElementById("score1").innerHTML = player1.innerText + " score: " + roll1;
-    total1 += roll1;
-    document.getElementById("total1").innerHTML = total1;
+        // document.getElementById("score1").innerHTML = player1.innerText + " score: " + roll1;
+        total1 += roll1;
+        document.getElementById("total1").innerHTML = total1;
 
-    // document.getElementById("score2").innerHTML = player2.innerText + " score:" + roll2;
-    total2 += roll2;
-    document.getElementById("total2").innerHTML = total2;
+        // document.getElementById("score2").innerHTML = player2.innerText + " score:" + roll2;
+        total2 += roll2;
+        document.getElementById("total2").innerHTML = total2;
 
-    console.info("Total score:",total1)
-    console.info("Total score:",total2)
+        console.info("Total score:",total1)
+        console.info("Total score:",total2)
 
-    let dice1 = document.querySelectorAll('.dice')[0].lastElementChild;
-    let rollImage1 = "dice-six-faces-" + roll1 + ".png";
-    let imageSource1 = "images/" + rollImage1;
-    dice1.setAttribute("src", imageSource1);
+        let dice1 = document.querySelectorAll('.dice')[0].lastElementChild;
+        let rollImage1 = "dice-six-faces-" + roll1 + ".png";
+        let imageSource1 = "images/" + rollImage1;
+        dice1.setAttribute("src", imageSource1);
     
-    let dice2 = document.querySelectorAll('.dice')[1].lastElementChild;
-    let rollImage2 = "dice-six-faces-" + roll2 + ".png";
-    let imageSource2 = "images/" + rollImage2;
-    dice2.setAttribute("src", imageSource2);
+        let dice2 = document.querySelectorAll('.dice')[1].lastElementChild;
+        let rollImage2 = "dice-six-faces-" + roll2 + ".png";
+        let imageSource2 = "images/" + rollImage2;
+        dice2.setAttribute("src", imageSource2);
 
-    const items1 = [
-        {roll1:clicks, roll2:clicks}
-    ];
+        const items1 = [
+            {roll1:clicks, roll2:clicks}
+        ];
 
-    function loadTableData(items){
-        const table = document.getElementById("score-table");
+        function loadTableData(items){
+            const table = document.getElementById("score-table");
 
         // document.querySelectorAll("#total1")[1].innerHTML=total1.innerHTML; //pievienojot tabulā total vērtību, pazūd pie teksta.
         // document.querySelectorAll("#total2")[1].innerHTML=total2.innerHTML;
 
-        items.forEach(() => {
-            let row = table.insertRow();
-            let round = row.insertCell(0);
-            round.innerHTML = clicks+1; //tabulā iekļauti raundi
-            let player1 = row.insertCell(1);
-            player1.innerHTML = roll1;
-            let player2 = row.insertCell(2);
-            player2.innerHTML = roll2;
-        });
-    }
-    loadTableData(items1);
-    loadTableData([]);
+            items.forEach(() => {
+                let row = table.insertRow();
+                let round = row.insertCell(0);
+                round.innerHTML = clicks+1; //tabulā iekļauti raundi
+                let player1 = row.insertCell(1);
+                player1.innerHTML = roll1;
+                let player2 = row.insertCell(2);
+                player2.innerHTML = roll2;
+            });
+        }
+        loadTableData(items1);
+        loadTableData([]);
+    },1000);
 
 }
 function stopGame() {
-    if(clicks>=9){
-        if(total1<total2){
-            document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
-        }else if(total1>total2){
-            document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
-        }else if (total1 == total2){
-            document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+    setTimeout(function(){
+        if(clicks>=9){
+            if(total1<total2){
+                document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
+            }else if(total1>total2){
+                document.querySelector("h2").innerHTML = ("Game over! " + player1.innerText + " won!");
+            }else if (total1 == total2){
+                document.querySelector("h2").innerHTML = "Game over! It's a draw!";
+            }
+            window.rollDice = function(){};
+        }else{
+            document.querySelector("h2").innerHTML = "Who's the winner?";
         }
-        window.rollDice = function(){};
-    }else{
-        document.querySelector("h2").innerHTML = "Who's the winner?";
-    }
-    clicks++;
+        clicks++;
+    },1000);
   };
 
-  button.addEventListener('click',stopGame);
+button.addEventListener('click',stopGame);
 
 function resetScore(){
     window.location.reload();
