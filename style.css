@@ -37,12 +37,21 @@ form {
   padding: 5px;
 }
 
+#myButton {
+  background-color: rgb(212, 73, 101);
+  border-radius: 45px;
+  padding: 10px;
+  color: rgb(20, 18, 18);
+  width: 100px;
+}
+
 #img-header {
   width: 30px;
 }
 
 img {
-  width: 100px;
+  width: 150px;
+  padding-bottom: 20px;
 }
 
 header {

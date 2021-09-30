@@ -9,17 +9,17 @@ let clicks = 0;
 let myAudio = document.querySelector('#audio');
 myAudio.volume = 0.5;
   
-  function addAnimation(){
-    myAudio.play()
-    // document.getElementById('dice').classList.add("shake");
-    let timer = setInterval(function(){
-      rollDice();
-    }, 1000);
-    setTimeout(function(){
-    //   document.getElementById('dice').classList.remove("shake");
-      clearInterval(timer);
-    },1000);
-  }
+//   function addAnimation(){
+//     myAudio.play()
+//     // document.getElementById('dice').classList.add("shake");
+//     let timer = setInterval(function(){
+//       rollDice();
+//     }, 1000);
+//     setTimeout(function(){
+//     //   document.getElementById('dice').classList.remove("shake");
+//       clearInterval(timer);
+//     },1000);
+//   }
 
 function getNames() {
     let name1 = document.getElementById("name1").value;
@@ -41,11 +41,11 @@ function rollDice(){
     console.info("Rolled value is: ", roll1);
     console.info("Rolled value is: ", roll2);
 
-    document.getElementById("score1").innerHTML = player1.innerText + " score: " + roll1;
+    // document.getElementById("score1").innerHTML = player1.innerText + " score: " + roll1;
     total1 += roll1;
     document.getElementById("total1").innerHTML = total1;
 
-    document.getElementById("score2").innerHTML = player2.innerText + " score:" + roll2;
+    // document.getElementById("score2").innerHTML = player2.innerText + " score:" + roll2;
     total2 += roll2;
     document.getElementById("total2").innerHTML = total2;
 
@@ -75,7 +75,7 @@ function rollDice(){
         items.forEach(() => {
             let row = table.insertRow();
             let round = row.insertCell(0);
-            round.innerHTML = clicks; //tabulā iekļauti raundi
+            round.innerHTML = clicks+1; //tabulā iekļauti raundi
             let player1 = row.insertCell(1);
             player1.innerHTML = roll1;
             let player2 = row.insertCell(2);
@@ -87,7 +87,7 @@ function rollDice(){
 
 }
 function stopGame() {
-    if(clicks===9){
+    if(clicks>=9){
         if(total1<total2){
             document.querySelector("h2").innerHTML = ("Game over! " + player2.innerText + " won!");
         }else if(total1>total2){
