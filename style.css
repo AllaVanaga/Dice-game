@@ -24,7 +24,7 @@ form {
   background-color: #bad1eb;
   width: 10cm;
   padding: 10px 25px;
-  min-height: 15cm;
+  min-height: 11cm;
 }
 
 .containerScore {
@@ -47,6 +47,7 @@ form {
 
 #img-header {
   width: 30px;
+  vertical-align: middle;
 }
 
 img {
@@ -55,11 +56,17 @@ img {
 }
 
 header {
-  margin: 30px;
+  margin: 20px;
   color: #792f2f;
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   padding: 10px;
+}
+
+footer {
+  color: #792f2f;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .dice {
